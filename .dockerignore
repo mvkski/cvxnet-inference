@@ -1,0 +1,13 @@
+*
+!requirements-render.txt
+!requirements-inference.txt
+!infer.py
+!model_config.json
+!cvxnet_inference/
+!cvxnet_inference/**
+!vendor/
+!vendor/**
+!tests/
+!tests/**
+**/__pycache__/
+**/*.pyc

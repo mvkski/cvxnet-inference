@@ -1,0 +1,51 @@
+{
+  "architecture": "official_tensorflow_cvxnet_multiconvex",
+  "checkpoint_prefix": "model.ckpt-1000000",
+  "checkpoint_step": 1000000,
+  "checkpoint_format": "TensorFlow v1 Saver",
+  "checkpoint_includes_optimizer_state": true,
+  "model": {
+    "encoder": "ResNet18",
+    "latent_size": 256,
+    "n_parts": 50,
+    "n_half_planes": 50,
+    "dims": 3,
+    "sharpness": 75.0,
+    "image_input": false,
+    "depth_d": 20,
+    "depth_h": 224,
+    "depth_w": 224,
+    "level_set": 0.5
+  },
+  "input_preprocessing": {
+    "normalization": "Center at bounding-box center; uniformly scale maximum extent to 1.0",
+    "views": "20 fixed Fibonacci-sphere camera positions",
+    "camera_distance": 1.6,
+    "camera_fov_degrees": 60.0,
+    "depth_storage": "uint16 millimeters; convert to float32 meters by dividing by 1000",
+    "background_depth": 0,
+    "encoder_tensor_layout": "NHWC: [batch, 224, 224, 20]"
+  },
+  "training": {
+    "dataset": "Mesh2SDF-repaired HY3D-Bench meshes from my-little-perceptron/mlp-vorogen",
+    "training_shapes": 245797,
+    "batch_size": 32,
+    "optimizer": "Adam",
+    "learning_rate": 0.0001,
+    "max_steps": 1000000,
+    "sample_bbx": 1024,
+    "sample_surf": 1024,
+    "query_sampling": "Independent uniform indices with replacement from each 100000-query pool",
+    "weight_overlap": 0.1,
+    "weight_balance": 0.01,
+    "weight_center": 0.001
+  },
+  "implementation": {
+    "upstream": "https://github.com/tensorflow/graphics/tree/master/tensorflow_graphics/projects/cvxnet",
+    "upstream_commit": "378e9b7352933ce0a1af4f3331695e0fc590ff75",
+    "training_script_modified": false,
+    "architecture_and_loss_modified": false,
+    "training_loader": "Custom compact NPY loader; independent random query sampling matching upstream",
+    "inference": "Construct the official CvxNet model using the supplied model fields, then restore the checkpoint prefix. This is not a Transformers/AutoModel checkpoint. Source code and input meshes are not included."
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "model.ckpt-1000000.index": {
+    "sha256": "e9db73badf9846a861cda5564501e72a14534e8b8f98cc1e56b9404a813c6cb8",
+    "size_bytes": 9844
+  },
+  "model.ckpt-1000000.data-00000-of-00001": {
+    "sha256": "608c79c141943ae1213d18c381d1cba8a60b47a5e56f5aaf80ef63588fed5348",
+    "size_bytes": 366643456
+  },
+  "model.ckpt-1000000.meta": {
+    "sha256": "1511bea3847faa83b9916f65137cc027adf98dcaaad3d7f6aa68593d33fc5561",
+    "size_bytes": 42194068
+  },
+  "checkpoint": {
+    "sha256": "d3f8ac145706e9fb21f230c5c56a38810859b038ef2432840e246d44fb0f66a9",
+    "size_bytes": 93
+  },
+  "config.json": {
+    "sha256": "46888229100b6f97c9d49f1ceed7835b2595852842b56ad6a98b24aef9731b2e",
+    "size_bytes": 1992
+  }
+}
