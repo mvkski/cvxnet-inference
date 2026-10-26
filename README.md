@@ -14,8 +14,8 @@ image is needed. Weights are downloaded separately from our private Hugging Face
 - An NVIDIA GPU, a CUDA-12.8-compatible driver (R570+ recommended), and
   [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html)
   configured for `docker run --gpus all`.
-- Permission to access the private GitHub repository and the separate private
-  Hugging Face weights repository. HF authentication is only needed to download
+- Permission to access the private Hugging Face weights repository. The GitHub
+  code repository is public. HF authentication is only needed to download
   weights, never to run inference.
 - Allow roughly 40–60 GB for images/build cache on a fresh machine, plus ~390 MiB
   for weights. The first build downloads frameworks and compiles PyTorch3D; this
@@ -28,10 +28,10 @@ they are not all tested here.
 
 ## 1. Clone and build
 
-Authenticate to GitHub using your usual SSH key or `gh auth login`, then:
+The code repository is public; no GitHub authentication is required:
 
 ```bash
-git clone git@github.com:mvkski/cvxnet-inference.git
+git clone https://github.com/mvkski/cvxnet-inference.git
 cd cvxnet-inference
 bash build.sh
 ```
