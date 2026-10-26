@@ -53,3 +53,8 @@ network connection is mounted inside either inference container.
 This is a packaging/regression test, not a new reconstruction-quality benchmark
 or a claim of support for every GPU, mesh format variant, or pathological mesh.
 Benchmark assets and generated meshes are intentionally not committed to GitHub.
+
+The first GitHub-hosted test run exposed an undeclared NetworkX dependency used
+by Trimesh's normal repair (already present in the tested Docker bases). It is now
+explicitly pinned in `requirements-inference.txt`, so a fresh Python environment
+does not rely on that incidental base-image dependency.
